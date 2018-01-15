@@ -597,12 +597,12 @@ int nr_ice_get_global_attributes(nr_ice_ctx *ctx,char ***attrsp, int *attrctp)
 
     if(!(tmp=RMALLOC(100)))
       ABORT(R_NO_MEMORY);
-    snprintf(tmp,100,"ice-ufrag:%s",ctx->ufrag);
+    _snprintf(tmp,100,"ice-ufrag:%s",ctx->ufrag);
     attrs[0]=tmp;
 
     if(!(tmp=RMALLOC(100)))
       ABORT(R_NO_MEMORY);
-    snprintf(tmp,100,"ice-pwd:%s",ctx->pwd);
+    _snprintf(tmp,100,"ice-pwd:%s",ctx->pwd);
     attrs[1]=tmp;
 
     *attrctp=2;

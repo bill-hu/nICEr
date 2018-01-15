@@ -79,7 +79,7 @@ void nr_ice_candidate_compute_codeword(nr_ice_candidate *cand)
   {
     char as_string[1024];
 
-    snprintf(as_string,
+    _snprintf(as_string,
              sizeof(as_string),
              "%s(%s)",
              cand->addr.as_string,
@@ -105,11 +105,11 @@ static int nr_ice_candidate_format_stun_label(char *label, size_t size, nr_ice_c
     *label = 0;
     switch(cand->stun_server->type) {
       case NR_ICE_STUN_SERVER_TYPE_ADDR:
-        snprintf(label, size, "%s(%s|%s)", nr_ctype_name(cand->type), cand->base.as_string,
+        _snprintf(label, size, "%s(%s|%s)", nr_ctype_name(cand->type), cand->base.as_string,
                  cand->stun_server->u.addr.as_string);
         break;
       case NR_ICE_STUN_SERVER_TYPE_DNSNAME:
-        snprintf(label, size, "%s(%s|%s:%u)", nr_ctype_name(cand->type), cand->base.as_string,
+        _snprintf(label, size, "%s(%s|%s:%u)", nr_ctype_name(cand->type), cand->base.as_string,
                  cand->stun_server->u.dnsname.host, cand->stun_server->u.dnsname.port);
         break;
       default:
@@ -147,7 +147,7 @@ int nr_ice_candidate_create(nr_ice_ctx *ctx,nr_ice_component *comp,nr_ice_socket
 
     switch(ctype) {
       case HOST:
-        snprintf(label, sizeof(label), "host(%s)", cand->base.as_string);
+        _snprintf(label, sizeof(label), "host(%s)", cand->base.as_string);
         break;
 
       case SERVER_REFLEXIVE:
@@ -161,7 +161,7 @@ int nr_ice_candidate_create(nr_ice_ctx *ctx,nr_ice_component *comp,nr_ice_socket
         break;
 
       case PEER_REFLEXIVE:
-        snprintf(label, sizeof(label), "prflx");
+        _snprintf(label, sizeof(label), "prflx");
         break;
 
       default:
@@ -316,7 +316,7 @@ static int nr_ice_get_foundation(nr_ice_ctx *ctx,nr_ice_candidate *cand)
       if(cand->stun_server != foundation->stun_server)
         goto next;
 
-      snprintf(fnd,sizeof(fnd),"%d",i);
+      _snprintf(fnd,sizeof(fnd),"%d",i);
       if(!(cand->foundation=r_strdup(fnd)))
         ABORT(R_NO_MEMORY);
       return(0);
@@ -333,7 +333,7 @@ static int nr_ice_get_foundation(nr_ice_ctx *ctx,nr_ice_candidate *cand)
     foundation->stun_server=cand->stun_server;
     STAILQ_INSERT_TAIL(&ctx->foundations,foundation,entry);
 
-    snprintf(fnd,sizeof(fnd),"%d",i);
+    _snprintf(fnd,sizeof(fnd),"%d",i);
     if(!(cand->foundation=r_strdup(fnd)))
       ABORT(R_NO_MEMORY);
 
@@ -831,7 +831,7 @@ int nr_ice_format_candidate_attribute(nr_ice_candidate *cand, char *attr, int ma
       ABORT(r);
     if(r=nr_transport_addr_get_port(&cand->addr,&port))
       ABORT(r);
-    snprintf(attr,maxlen,"candidate:%s %d UDP %u %s %d typ %s",
+    _snprintf(attr,maxlen,"candidate:%s %d UDP %u %s %d typ %s",
       cand->foundation, cand->component_id, cand->priority, addr, port,
       nr_ctype_name(cand->type));
 
@@ -848,7 +848,7 @@ int nr_ice_format_candidate_attribute(nr_ice_candidate *cand, char *attr, int ma
         if(r=nr_transport_addr_get_port(&cand->base,&port))
           ABORT(r);
 
-        snprintf(attr,maxlen," raddr %s rport %d",addr,port);
+        _snprintf(attr,maxlen," raddr %s rport %d",addr,port);
         break;
       case RELAYED:
         // comes from XorMappedAddress via AllocateResponse
@@ -857,7 +857,7 @@ int nr_ice_format_candidate_attribute(nr_ice_candidate *cand, char *attr, int ma
         if(r=nr_transport_addr_get_port(&cand->base,&port))
           ABORT(r);
 
-        snprintf(attr,maxlen," raddr %s rport %d",addr,port);
+        _snprintf(attr,maxlen," raddr %s rport %d",addr,port);
         break;
       default:
         assert(0);

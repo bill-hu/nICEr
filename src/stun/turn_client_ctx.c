@@ -105,7 +105,7 @@ static int nr_turn_stun_ctx_create(nr_turn_client_ctx *tctx, int mode,
     ABORT(R_NO_MEMORY);
 
   /* TODO(ekr@rtfm.com): label by phase */
-  snprintf(label, sizeof(label), "%s:%s", tctx->label, ":TURN");
+  _snprintf(label, sizeof(label), "%s:%s", tctx->label, ":TURN");
 
   if ((r=nr_stun_client_ctx_create(label, tctx->sock, &tctx->turn_server_addr,
                                    TURN_RTO, &sctx->stun))) {

@@ -262,7 +262,7 @@ static int nr_ice_component_initialize_udp(struct nr_ice_ctx_ *ctx,nr_ice_compon
 #endif /* USE_TURN */
 
       /* Create a STUN server context for this socket */
-      snprintf(label, sizeof(label), "server(%s)", addrs[i].addr.as_string);
+      _snprintf(label, sizeof(label), "server(%s)", addrs[i].addr.as_string);
       if(r=nr_stun_server_ctx_create(label,sock,&isock->stun_server))
         ABORT(r);
       if(r=nr_ice_socket_register_stun_server(isock,isock->stun_server,&isock->stun_server_handle))
@@ -348,7 +348,7 @@ static int nr_ice_component_initialize_tcp(struct nr_ice_ctx_ *ctx,nr_ice_compon
         cand=0;
 
         /* Create a STUN server context for this socket */
-        snprintf(label, sizeof(label), "server(%s)", addr.as_string);
+        _snprintf(label, sizeof(label), "server(%s)", addr.as_string);
         if(r=nr_stun_server_ctx_create(label,sock,&isock->stun_server))
           ABORT(r);
         if(r=nr_ice_socket_register_stun_server(isock,isock->stun_server,&isock->stun_server_handle))

@@ -38,7 +38,9 @@ static char *RCSSTRING __UNUSED__="$Id: addrs.c,v 1.2 2008/04/28 18:21:30 ekr Ex
 #include <string.h>
 
 #ifdef WIN32
+#define IFNAMSIZ 16
 #include <winsock2.h>
+#include <ipmib.h>
 #include <iphlpapi.h>
 #include <tchar.h>
 #else   /* UNIX */
@@ -416,7 +418,7 @@ stun_get_win32_addrs(nr_local_addr addrs[], int maxaddrs, int *count)
       }
       if (friendly_name && *friendly_name) {
         r_log(NR_LOG_STUN, LOG_INFO, "Found adapter with friendly name: %s", friendly_name);
-        snprintf(munged_ifname, IFNAMSIZ, "%s%c", friendly_name, 0);
+        _snprintf(munged_ifname, IFNAMSIZ, "%s%c", friendly_name, 0);
         RFREE(friendly_name);
         friendly_name = 0;
       } else {
@@ -424,7 +426,7 @@ stun_get_win32_addrs(nr_local_addr addrs[], int maxaddrs, int *count)
         // VPN adapter puts "VPN Connection 2" in the Description field instead.
         // Windows's renaming-logic appears to enforce uniqueness in spite of this.
         r_log(NR_LOG_STUN, LOG_INFO, "Found adapter with description: %s", pAdapter->Description);
-        snprintf(munged_ifname, IFNAMSIZ, "%s%c", pAdapter->Description, 0);
+        _snprintf(munged_ifname, IFNAMSIZ, "%s%c", pAdapter->Description, 0);
       }
       /* replace spaces with underscores */
       c = strchr(munged_ifname, ' ');
@@ -459,13 +461,13 @@ stun_get_win32_addrs(nr_local_addr addrs[], int maxaddrs, int *count)
         addr->addr_len=sizeof(struct sockaddr_in);
 
         strlcpy(addr->ifname, munged_ifname, sizeof(addr->ifname));
-        snprintf(addr->as_string,40,"IP4:%s:%d",
+        _snprintf(addr->as_string,40,"IP4:%s:%d",
                  inet_ntoa(addr->u.addr4.sin_addr),
                  ntohs(addr->u.addr4.sin_port));
 
         /* TODO: (Bug 895793) Getting interface properties for Windows */
-        addrs[n].interface.type = NR_INTERFACE_TYPE_UNKNOWN;
-        addrs[n].interface.estimated_speed = 0;
+        addrs[n]._interface.type = NR_INTERFACE_TYPE_UNKNOWN;
+        addrs[n]._interface.estimated_speed = 0;
 
         if (++n >= maxaddrs)
           goto done;
@@ -534,7 +536,7 @@ stun_get_win32_addrs(nr_local_addr addrs[], int maxaddrs, int *count)
       if (tmpAddress->OperStatus != IfOperStatusUp)
         continue;
 
-      snprintf(munged_ifname, IFNAMSIZ, "%S%c", tmpAddress->FriendlyName, 0);
+      _snprintf(munged_ifname, IFNAMSIZ, "%S%c", tmpAddress->FriendlyName, 0);
       /* replace spaces with underscores */
       c = strchr(munged_ifname, ' ');
       while (c != NULL) {

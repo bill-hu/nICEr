@@ -34,6 +34,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 static char *RCSSTRING __UNUSED__="$Id: ice_test.c,v 1.3 2008/04/28 19:37:00 ekr Exp $";
 
 #include <string.h>
+#include <stdio.h>
 #include <csi_platform.h>
 #ifdef WIN32
 #include <winsock2.h>
@@ -371,7 +372,7 @@ static int create_test_ice_ctx(char *label,int streams,UINT4 flags,test_ice_ctx 
     for(i=0;i<stream_ct;i++){
       char buf[1024];
 
-      snprintf(buf,1024,"%s:%d",label,i);
+      _snprintf(buf,1024,"%s:%d",label,i);
 
       if(r=nr_ice_add_media_stream(tctx->ctx,buf,1,&tctx->streams[tctx->stream_ct++]))
         nr_verr_exit("Couldn't create media stream");
@@ -398,7 +399,7 @@ int write_attributes(test_ice_ctx *ctx, char *out, int maxlen)
     if(r=nr_ice_get_global_attributes(ctx->ctx,&attrs,&attrct))
       nr_verr_exit("Couldn't get global attributes");
     for(j=0;j<attrct;j++){
-      snprintf(out,maxlen,"%s\n",attrs[j]);
+      _snprintf(out,maxlen,"%s\n",attrs[j]);
       maxlen-=strlen(out); out+=strlen(out);
       RFREE(attrs[j]);
     }
@@ -408,11 +409,11 @@ int write_attributes(test_ice_ctx *ctx, char *out, int maxlen)
       if(r=nr_ice_media_stream_get_attributes(ctx->streams[i],&attrs,&attrct))
         nr_verr_exit("Couldn't get attribute strings");
 
-      snprintf(out,maxlen,"\n");
+      _snprintf(out,maxlen,"\n");
       maxlen-=strlen(out); out+=strlen(out);
 
       for(j=0;j<attrct;j++){
-        snprintf(out,maxlen,"%s\n",attrs[j]);
+        _snprintf(out,maxlen,"%s\n",attrs[j]);
         maxlen-=strlen(out); out+=strlen(out);
         RFREE(attrs[j]);
       }
@@ -600,12 +601,12 @@ int main(int argc, char **argv)
     int r;
     struct timeval tv;
     int c;
-    extern char *optarg;
+    extern char *optarg_a;
     UINT4 flags=0;
 
     reg_mode=NR_REG_MODE_LOCAL;
 
-    while((c=getopt(argc,argv,"oas:pACT:g:RI"))!=-1){
+    while((c=getopt_a(argc,argv,"oas:pACT:g:RI"))!=-1){
       switch(c){
         case 'o':
           mode=MODE_OFFERER;
@@ -619,7 +620,7 @@ int main(int argc, char **argv)
           flags |= NR_ICE_CTX_FLAGS_AGGRESSIVE_NOMINATION;
           break;
         case 's':
-          stream_ct=atoi(optarg);
+          stream_ct=atoi(optarg_a);
           break;
         case 'p':
           dont_start=1;
@@ -631,7 +632,7 @@ int main(int argc, char **argv)
           impatient_mode=1;
           break;
         case 'g':
-          signal_host=r_strdup(optarg);
+          signal_host=r_strdup(optarg_a);
           break;
         case 'R':
 #ifdef NO_REG_RPC

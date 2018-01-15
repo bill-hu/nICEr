@@ -324,7 +324,7 @@ nr_stun_compute_lt_message_integrity_password(const char *username, const char *
   if (hmac_key->len < 16)
     ABORT(R_BAD_ARGS);
 
-  snprintf(digest_input, sizeof(digest_input), "%s:%s:", username, realm);
+  _snprintf(digest_input, sizeof(digest_input), "%s:%s:", username, realm);
   if ((sizeof(digest_input) - strlen(digest_input)) < password->len)
     ABORT(R_BAD_DATA);
 

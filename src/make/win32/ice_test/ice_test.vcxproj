@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0A5AA93A-32A6-4C67-8842-07B77EA9FCAB}</ProjectGuid>
+    <RootNamespace>ice_test</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\OpenSSL-Win32\include;D:\hubin\webrtc\nrappkit\src\event;D:\hubin\webrtc\nrappkit\src\log;D:\hubin\webrtc\nrappkit\src\port\generic\include;D:\hubin\webrtc\nrappkit\src\registry;D:\hubin\webrtc\nrappkit\src\share;D:\hubin\webrtc\nrappkit\src\plugin;D:\hubin\webrtc\nrappkit\src\stats;D:\hubin\webrtc\nrappkit\src\util;D:\hubin\webrtc\nrappkit\src\util\libekr;D:\hubin\webrtc\nrappkit\src\port\win32\include;D:\hubin\webrtc\nrappkit\src\port;..\..\..\crypto;..\..\..\ice;..\..\..\net;..\..\..\stun;..\..\..\util;..\..\..\..\..\nrappkit\src\util\libekr;..\..\..\..\..\nrappkit\src\port\win32\include;..\..\..\..\..\nrappkit\src\codec;..\..\..\..\..\nrappkit\src\event;..\..\..\..\..\nrappkit\src\log;..\..\..\..\..\nrappkit\src\plugin\api;..\..\..\..\..\nrappkit\src\plugin;..\..\..\..\..\nrappkit\src\registry;..\..\..\..\..\nrappkit\src\share;..\..\..\..\..\nrappkit\src\stats;..\..\..\..\..\nrappkit\src\util;..\..\..\..\..\openssl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STATIC_GETOPT;WIN32;USE_ICE;USE_TURN;_CRT_SECURE_NO_WARNINGS;__UNUSED__=;HAVE_STRDUP;OPENSSL;SIZEOF_SHORT=2;SIZEOF_UNSIGNED_SHORT=2;SIZEOF_INT=4;SIZEOF_UNSIGNED_INT=4;SIZEOF_LONG=4;SIZEOF_UNSIGNED_LONG=4;SIZEOF_LONG_LONG=8;SIZEOF_UNSIGNED_LONG_LONG=8;NO_REG_RPC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>D:\hubin\webrtc\nrappkit\build\nrappkit\Debug\libnrappkit.lib;kernel32.lib;ws2_32.lib;iphlpapi.lib;Advapi32.lib;libeay32MTd.lib;ssleay32MTd.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\OpenSSL-Win32\lib\VC;..\..\..\..\..\openssl\lib\VC;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\crypto;..\..\..\ice;..\..\..\net;..\..\..\stun;..\..\..\util;..\..\..\..\..\nrappkit\src\util\libekr;..\..\..\..\..\nrappkit\src\port\win32\include;..\..\..\..\..\nrappkit\src\codec;..\..\..\..\..\nrappkit\src\event;..\..\..\..\..\nrappkit\src\log;..\..\..\..\..\nrappkit\src\plugin\api;..\..\..\..\..\nrappkit\src\plugin;..\..\..\..\..\nrappkit\src\registry;..\..\..\..\..\nrappkit\src\share;..\..\..\..\..\nrappkit\src\stats;..\..\..\..\..\nrappkit\src\util;..\..\..\..\..\openssl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;USE_ICE;USE_TURN;_CRT_SECURE_NO_WARNINGS;__UNUSED__=;HAVE_STRDUP;OPENSSL;SIZEOF_SHORT=2;SIZEOF_UNSIGNED_SHORT=2;SIZEOF_INT=4;SIZEOF_UNSIGNED_INT=4;SIZEOF_LONG=4;SIZEOF_UNSIGNED_LONG=4;SIZEOF_LONG_LONG=8;SIZEOF_UNSIGNED_LONG_LONG=8;NO_REG_RPC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;ws2_32.lib;iphlpapi.lib;Advapi32.lib;libeay32MT.lib;ssleay32MT.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\..\..\openssl\lib\VC;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\ice\test\getopt.c" />
+    <ClCompile Include="..\..\..\ice\test\ice_test.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libICE\libICE.vcxproj">
+      <Project>{7655e0b5-8d1f-4a25-87d1-d4cc9668a80d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="ice_test.vcxproj">
+      <Project>{0a5aa93a-32a6-4c67-8842-07b77ea9fcab}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>false</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\ice\test\getopt.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

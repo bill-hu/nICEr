@@ -48,10 +48,10 @@ int nr_socket_create_int(void *obj, nr_socket_vtbl *vtbl, nr_socket **sockp)
     if(!(sock=RCALLOC(sizeof(nr_socket))))
       ABORT(R_NO_MEMORY);
 
-    assert(vtbl->version == 1);
+  /*  assert(vtbl->version == 1);
     if (vtbl->version != 1)
        ABORT(R_INTERNAL);
-
+*/
     sock->obj=obj;
     sock->vtbl=vtbl;
 

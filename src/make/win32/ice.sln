@@ -1,34 +1,47 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libICE", "libICE\libICE.vcproj", "{7655E0B5-8D1F-4A25-87D1-D4CC9668A80D}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libnrappkit", "..\..\..\..\nrappkit\src\make\win32\libnrappkit\libnrappkit.vcproj", "{61F3516C-5C1C-4600-9745-EE089872BE28}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ice_test", "ice_test\ice_test.vcproj", "{0A5AA93A-32A6-4C67-8842-07B77EA9FCAB}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libICE", "libICE\libICE.vcxproj", "{7655E0B5-8D1F-4A25-87D1-D4CC9668A80D}"
 	ProjectSection(ProjectDependencies) = postProject
-		{7655E0B5-8D1F-4A25-87D1-D4CC9668A80D} = {7655E0B5-8D1F-4A25-87D1-D4CC9668A80D}
-		{61F3516C-5C1C-4600-9745-EE089872BE28} = {61F3516C-5C1C-4600-9745-EE089872BE28}
+		{2F1DD5FF-B93D-34F0-8047-56A94A7B6429} = {2F1DD5FF-B93D-34F0-8047-56A94A7B6429}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ice_test", "ice_test\ice_test.vcxproj", "{0A5AA93A-32A6-4C67-8842-07B77EA9FCAB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nrappkit", "..\..\..\..\nrappkit\build\nrappkit.vcxproj", "{2F1DD5FF-B93D-34F0-8047-56A94A7B6429}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		MinSizeRel|Win32 = MinSizeRel|Win32
 		Release|Win32 = Release|Win32
+		RelWithDebInfo|Win32 = RelWithDebInfo|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7655E0B5-8D1F-4A25-87D1-D4CC9668A80D}.Debug|Win32.ActiveCfg = Debug|Win32
 		{7655E0B5-8D1F-4A25-87D1-D4CC9668A80D}.Debug|Win32.Build.0 = Debug|Win32
+		{7655E0B5-8D1F-4A25-87D1-D4CC9668A80D}.MinSizeRel|Win32.ActiveCfg = Release|Win32
+		{7655E0B5-8D1F-4A25-87D1-D4CC9668A80D}.MinSizeRel|Win32.Build.0 = Release|Win32
 		{7655E0B5-8D1F-4A25-87D1-D4CC9668A80D}.Release|Win32.ActiveCfg = Release|Win32
 		{7655E0B5-8D1F-4A25-87D1-D4CC9668A80D}.Release|Win32.Build.0 = Release|Win32
-		{61F3516C-5C1C-4600-9745-EE089872BE28}.Debug|Win32.ActiveCfg = Debug|Win32
-		{61F3516C-5C1C-4600-9745-EE089872BE28}.Debug|Win32.Build.0 = Debug|Win32
-		{61F3516C-5C1C-4600-9745-EE089872BE28}.Release|Win32.ActiveCfg = Release|Win32
-		{61F3516C-5C1C-4600-9745-EE089872BE28}.Release|Win32.Build.0 = Release|Win32
+		{7655E0B5-8D1F-4A25-87D1-D4CC9668A80D}.RelWithDebInfo|Win32.ActiveCfg = Release|Win32
+		{7655E0B5-8D1F-4A25-87D1-D4CC9668A80D}.RelWithDebInfo|Win32.Build.0 = Release|Win32
 		{0A5AA93A-32A6-4C67-8842-07B77EA9FCAB}.Debug|Win32.ActiveCfg = Debug|Win32
 		{0A5AA93A-32A6-4C67-8842-07B77EA9FCAB}.Debug|Win32.Build.0 = Debug|Win32
+		{0A5AA93A-32A6-4C67-8842-07B77EA9FCAB}.MinSizeRel|Win32.ActiveCfg = Release|Win32
+		{0A5AA93A-32A6-4C67-8842-07B77EA9FCAB}.MinSizeRel|Win32.Build.0 = Release|Win32
 		{0A5AA93A-32A6-4C67-8842-07B77EA9FCAB}.Release|Win32.ActiveCfg = Release|Win32
 		{0A5AA93A-32A6-4C67-8842-07B77EA9FCAB}.Release|Win32.Build.0 = Release|Win32
+		{0A5AA93A-32A6-4C67-8842-07B77EA9FCAB}.RelWithDebInfo|Win32.ActiveCfg = Release|Win32
+		{0A5AA93A-32A6-4C67-8842-07B77EA9FCAB}.RelWithDebInfo|Win32.Build.0 = Release|Win32
+		{2F1DD5FF-B93D-34F0-8047-56A94A7B6429}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2F1DD5FF-B93D-34F0-8047-56A94A7B6429}.Debug|Win32.Build.0 = Debug|Win32
+		{2F1DD5FF-B93D-34F0-8047-56A94A7B6429}.MinSizeRel|Win32.ActiveCfg = MinSizeRel|Win32
+		{2F1DD5FF-B93D-34F0-8047-56A94A7B6429}.MinSizeRel|Win32.Build.0 = MinSizeRel|Win32
+		{2F1DD5FF-B93D-34F0-8047-56A94A7B6429}.Release|Win32.ActiveCfg = Release|Win32
+		{2F1DD5FF-B93D-34F0-8047-56A94A7B6429}.Release|Win32.Build.0 = Release|Win32
+		{2F1DD5FF-B93D-34F0-8047-56A94A7B6429}.RelWithDebInfo|Win32.ActiveCfg = RelWithDebInfo|Win32
+		{2F1DD5FF-B93D-34F0-8047-56A94A7B6429}.RelWithDebInfo|Win32.Build.0 = RelWithDebInfo|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

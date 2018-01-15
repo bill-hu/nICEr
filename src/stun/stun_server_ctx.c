@@ -36,6 +36,7 @@ static char *RCSSTRING __UNUSED__="$Id: stun_server_ctx.c,v 1.2 2008/04/28 18:21
 
 #include <string.h>
 #include <assert.h>
+#include <stdio.h>
 
 #include "nr_api.h"
 #include "stun.h"
@@ -238,7 +239,7 @@ int nr_stun_server_process_request(nr_stun_server_ctx *ctx, nr_socket *sock, cha
 
     r_log(NR_LOG_STUN,LOG_DEBUG,"STUN-SERVER(%s): Received(my_addr=%s,peer_addr=%s)",ctx->label,ctx->my_addr.as_string,peer_addr->as_string);
 
-    snprintf(string, sizeof(string)-1, "STUN-SERVER(%s): Received ", ctx->label);
+    _snprintf(string, sizeof(string)-1, "STUN-SERVER(%s): Received ", ctx->label);
     r_dump(NR_LOG_STUN, LOG_DEBUG, string, (char*)msg, len);
 
     memset(&info,0,sizeof(info));
@@ -399,7 +400,7 @@ static int nr_stun_server_send_response(nr_stun_server_ctx *ctx, nr_socket *sock
         r_log(NR_LOG_STUN,LOG_ERR,"STUN-SERVER(label=%s): Unable to encode message", ctx->label);
     }
     else {
-        snprintf(string, sizeof(string)-1, "STUN(%s): Sending to %s ", ctx->label, peer_addr->as_string);
+        _snprintf(string, sizeof(string)-1, "STUN(%s): Sending to %s ", ctx->label, peer_addr->as_string);
         r_dump(NR_LOG_STUN, LOG_DEBUG, string, (char*)res->buffer, res->length);
 
         if(r=nr_socket_sendto(sock?sock:ctx->sock,res->buffer,res->length,0,peer_addr))

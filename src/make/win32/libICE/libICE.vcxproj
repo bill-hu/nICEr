@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7655E0B5-8D1F-4A25-87D1-D4CC9668A80D}</ProjectGuid>
+    <RootNamespace>libICE</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\OpenSSL-Win32\include;D:\hubin\webrtc\nrappkit\src\event;D:\hubin\webrtc\nrappkit\src\log;D:\hubin\webrtc\nrappkit\src\port\generic\include;D:\hubin\webrtc\nrappkit\src\registry;D:\hubin\webrtc\nrappkit\src\share;D:\hubin\webrtc\nrappkit\src\plugin;D:\hubin\webrtc\nrappkit\src\stats;D:\hubin\webrtc\nrappkit\src\util;D:\hubin\webrtc\nrappkit\src\util\libekr;D:\hubin\webrtc\nrappkit\src\port\win32\include;D:\hubin\webrtc\nrappkit\src\port;..\..\..\crypto;..\..\..\ice;..\..\..\net;..\..\..\stun;..\..\..\util;..\..\..\..\..\nrappkit\src\util\libekr;..\..\..\..\..\nrappkit\src\port\win32\include;..\..\..\..\..\nrappkit\src\codec;..\..\..\..\..\nrappkit\src\event;..\..\..\..\..\nrappkit\src\log;..\..\..\..\..\nrappkit\src\plugin\api;..\..\..\..\..\nrappkit\src\plugin;..\..\..\..\..\nrappkit\src\registry;..\..\..\..\..\nrappkit\src\share;..\..\..\..\..\nrappkit\src\stats;..\..\..\..\..\nrappkit\src\util;..\..\..\..\..\openssl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;USE_ICE;USE_TURN;USE_RFC_3489_BACKWARDS_COMPATIBLE;USE_STUND_0_96;USE_STUN_PEDANTIC;_CRT_SECURE_NO_WARNINGS;__UNUSED__=;HAVE_STRDUP;OPENSSL;SIZEOF_SHORT=2;SIZEOF_UNSIGNED_SHORT=2;SIZEOF_INT=4;SIZEOF_UNSIGNED_INT=4;SIZEOF_LONG=4;SIZEOF_UNSIGNED_LONG=4;SIZEOF_LONG_LONG=8;SIZEOF_UNSIGNED_LONG_LONG=8;NO_REG_RPC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4290;4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\crypto;..\..\..\ice;..\..\..\net;..\..\..\stun;..\..\..\util;..\..\..\..\..\nrappkit\src\util\libekr;..\..\..\..\..\nrappkit\src\port\win32\include;..\..\..\..\..\nrappkit\src\codec;..\..\..\..\..\nrappkit\src\event;..\..\..\..\..\nrappkit\src\log;..\..\..\..\..\nrappkit\src\plugin\api;..\..\..\..\..\nrappkit\src\plugin;..\..\..\..\..\nrappkit\src\registry;..\..\..\..\..\nrappkit\src\share;..\..\..\..\..\nrappkit\src\stats;..\..\..\..\..\nrappkit\src\util;..\..\..\..\..\openssl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;USE_ICE;USE_TURN;USE_STUND_0_96;USE_RFC_3489_BACKWARDS_COMPATIBLE;USE_STUN_PEDANTIC;_CRT_SECURE_NO_WARNINGS;__UNUSED__=;HAVE_STRDUP;OPENSSL;SIZEOF_SHORT=2;SIZEOF_UNSIGNED_SHORT=2;SIZEOF_INT=4;SIZEOF_UNSIGNED_INT=4;SIZEOF_LONG=4;SIZEOF_UNSIGNED_LONG=4;SIZEOF_LONG_LONG=8;SIZEOF_UNSIGNED_LONG_LONG=8;NO_REG_RPC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4290;4267;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\net\local_addr.c" />
+    <ClCompile Include="..\..\..\net\nr_interface_prioritizer.c" />
+    <ClCompile Include="..\..\..\net\nr_resolver.c" />
+    <ClCompile Include="..\..\..\stun\addrs.c" />
+    <ClCompile Include="..\..\..\stun\nr_socket_buffered_stun.c" />
+    <ClCompile Include="..\..\..\util\cb_args.c" />
+    <ClCompile Include="..\..\..\ice\ice_candidate.c" />
+    <ClCompile Include="..\..\..\ice\ice_candidate_pair.c" />
+    <ClCompile Include="..\..\..\ice\ice_codeword.c" />
+    <ClCompile Include="..\..\..\ice\ice_component.c" />
+    <ClCompile Include="..\..\..\ice\ice_ctx.c" />
+    <ClCompile Include="..\..\..\ice\ice_media_stream.c" />
+    <ClCompile Include="..\..\..\ice\ice_parser.c" />
+    <ClCompile Include="..\..\..\ice\ice_peer_ctx.c" />
+    <ClCompile Include="..\..\..\ice\ice_socket.c" />
+    <ClCompile Include="..\..\..\util\ice_util.c" />
+    <ClCompile Include="..\..\..\util\mbslen.c" />
+    <ClCompile Include="..\..\..\crypto\nr_crypto.c" />
+    <ClCompile Include="..\..\..\crypto\nr_crypto_openssl.c" />
+    <ClCompile Include="..\..\..\net\nr_socket.c" />
+    <ClCompile Include="..\..\..\net\nr_socket_local.c" />
+    <ClCompile Include="..\..\..\stun\nr_socket_turn.c" />
+    <ClCompile Include="..\..\..\stun\stun_build.c" />
+    <ClCompile Include="..\..\..\stun\stun_client_ctx.c" />
+    <ClCompile Include="..\..\..\stun\stun_codec.c" />
+    <ClCompile Include="..\..\..\stun\stun_hint.c" />
+    <ClCompile Include="..\..\..\stun\stun_msg.c" />
+    <ClCompile Include="..\..\..\stun\stun_proc.c" />
+    <ClCompile Include="..\..\..\stun\stun_server_ctx.c" />
+    <ClCompile Include="..\..\..\stun\stun_util.c" />
+    <ClCompile Include="..\..\..\net\transport_addr.c" />
+    <ClCompile Include="..\..\..\net\transport_addr_reg.c" />
+    <ClCompile Include="..\..\..\stun\turn_client_ctx.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\inner\AbstractCaller.hxx" />
+    <ClInclude Include="..\..\..\stun\addrs.h" />
+    <ClInclude Include="..\..\..\util\cb_args.h" />
+    <ClInclude Include="..\..\..\ice\codewords.h" />
+    <ClInclude Include="..\..\..\ice\ice_candidate.h" />
+    <ClInclude Include="..\..\..\ice\ice_candidate_pair.h" />
+    <ClInclude Include="..\..\..\ice\ice_codeword.h" />
+    <ClInclude Include="..\..\..\ice\ice_component.h" />
+    <ClInclude Include="..\..\..\ice\ice_ctx.h" />
+    <ClInclude Include="..\..\..\ice\ice_handler.h" />
+    <ClInclude Include="..\..\..\ice\ice_media_stream.h" />
+    <ClInclude Include="..\..\..\ice\ice_peer_ctx.h" />
+    <ClInclude Include="..\..\..\ice\ice_reg.h" />
+    <ClInclude Include="..\..\..\ice\ice_socket.h" />
+    <ClInclude Include="..\..\..\util\ice_util.h" />
+    <ClInclude Include="..\..\..\util\mbslen.h" />
+    <ClInclude Include="..\..\..\crypto\nr_crypto.h" />
+    <ClInclude Include="..\..\..\crypto\nr_crypto_openssl.h" />
+    <ClInclude Include="..\..\..\net\nr_socket.h" />
+    <ClInclude Include="..\..\..\net\nr_socket_local.h" />
+    <ClInclude Include="..\..\..\stun\nr_socket_turn.h" />
+    <ClInclude Include="..\..\..\stun\stun.h" />
+    <ClInclude Include="..\..\..\stun\stun_build.h" />
+    <ClInclude Include="..\..\..\stun\stun_client_ctx.h" />
+    <ClInclude Include="..\..\..\stun\stun_codec.h" />
+    <ClInclude Include="..\..\..\stun\stun_hint.h" />
+    <ClInclude Include="..\..\..\stun\stun_msg.h" />
+    <ClInclude Include="..\..\..\stun\stun_proc.h" />
+    <ClInclude Include="..\..\..\stun\stun_reg.h" />
+    <ClInclude Include="..\..\..\stun\stun_server_ctx.h" />
+    <ClInclude Include="..\..\..\stun\stun_util.h" />
+    <ClInclude Include="..\..\..\net\transport_addr.h" />
+    <ClInclude Include="..\..\..\net\transport_addr_reg.h" />
+    <ClInclude Include="..\..\..\stun\turn_client_ctx.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

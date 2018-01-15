@@ -589,7 +589,7 @@ static void nr_ice_candidate_pair_compute_codeword(nr_ice_cand_pair *pair,
   {
     char as_string[2048];
 
-    snprintf(as_string,
+    _snprintf(as_string,
              sizeof(as_string),
              "%s|%s(%s|%s)",
              lcand->addr.as_string,

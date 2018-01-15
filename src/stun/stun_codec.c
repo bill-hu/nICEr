@@ -990,9 +990,9 @@ nr_stun_attr_codec_unknown_attributes_print(nr_stun_attr_info *attr_info, char *
     char str[64 + (NR_STUN_MAX_UNKNOWN_ATTRIBUTES * sizeof(type))];
     int i;
 
-    snprintf(str, sizeof(str), "%s %s:", msg, attr_info->name);
+    _snprintf(str, sizeof(str), "%s %s:", msg, attr_info->name);
     for (i = 0; i < unknown_attributes->num_attributes; ++i) {
-        snprintf(type, sizeof(type), "%s 0x%04x", ((i>0)?",":""), unknown_attributes->attribute[i]);
+        _snprintf(type, sizeof(type), "%s 0x%04x", ((i>0)?",":""), unknown_attributes->attribute[i]);
         strlcat(str, type, sizeof(str));
     }
 

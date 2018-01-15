@@ -90,7 +90,7 @@ static void nr_ice_socket_readable_cb(NR_SOCKET s, int how, void *cb_arg)
       is_req=nr_is_stun_request_message(buf,len);
       is_ind=is_req?0:nr_is_stun_indication_message(buf,len);
 
-      snprintf(string, sizeof(string)-1, "ICE(%s): Message is STUN (%s)",sock->ctx->label,
+      _snprintf(string, sizeof(string)-1, "ICE(%s): Message is STUN (%s)",sock->ctx->label,
                is_req ? "request" : (is_ind ? "indication" : "other"));
       r_dump(NR_LOG_STUN, LOG_DEBUG, string, (char*)buf, len);
 

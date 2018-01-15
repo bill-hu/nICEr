@@ -367,7 +367,7 @@ static int nr_stun_client_send_request(nr_stun_client_ctx *ctx)
             ABORT(r);
     }
 
-    snprintf(string, sizeof(string)-1, "STUN-CLIENT(%s): Sending to %s ", ctx->label, ctx->peer_addr.as_string);
+    _snprintf(string, sizeof(string)-1, "STUN-CLIENT(%s): Sending to %s ", ctx->label, ctx->peer_addr.as_string);
     r_dump(NR_LOG_STUN, LOG_DEBUG, string, (char*)ctx->request->buffer, ctx->request->length);
 
     if(r=nr_socket_sendto(ctx->sock, ctx->request->buffer, ctx->request->length, 0, &ctx->peer_addr))
@@ -444,7 +444,7 @@ int nr_stun_client_process_response(nr_stun_client_ctx *ctx, UCHAR *msg, int len
 
     r_log(NR_LOG_STUN,LOG_DEBUG,"STUN-CLIENT(%s): Received check response (my_addr=%s,peer_addr=%s)",ctx->label,ctx->my_addr.as_string,peer_addr->as_string);
 
-    snprintf(string, sizeof(string)-1, "STUN-CLIENT(%s): Received ", ctx->label);
+    _snprintf(string, sizeof(string)-1, "STUN-CLIENT(%s): Received ", ctx->label);
     r_dump(NR_LOG_STUN, LOG_DEBUG, string, (char*)msg, len);
 
     /* determine password */
