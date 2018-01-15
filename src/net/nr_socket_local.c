@@ -73,13 +73,32 @@ static int nr_socket_local_getfd(void *obj, NR_SOCKET *fd);
 static int nr_socket_local_getaddr(void *obj, nr_transport_addr *addrp);
 static int nr_socket_local_close(void *obj);
 
+#if 0
+UINT4 version;   /* Currently 1 */
+int (*destroy)(void **obj);
+int (*ssendto)(void *obj,const void *msg, size_t len, int flags,
+	nr_transport_addr *addr);
+int (*srecvfrom)(void *obj,void * restrict buf, size_t maxlen, size_t *len, int flags,
+	nr_transport_addr *addr);
+int (*getfd)(void *obj, NR_SOCKET *fd);
+int (*getaddr)(void *obj, nr_transport_addr *addrp);
+int (*connect)(void *obj, nr_transport_addr *addr);
+int (*swrite)(void *obj,const void *msg, size_t len, size_t *written);
+int (*sread)(void *obj,void * restrict buf, size_t maxlen, size_t *len);
+int (*close)(void *obj);
+#endif
+
 static nr_socket_vtbl nr_socket_local_vtbl={
+	1,
   nr_socket_local_destroy,
   nr_socket_local_sendto,
   nr_socket_local_recvfrom,
   nr_socket_local_getfd,
   nr_socket_local_getaddr,
-  nr_socket_local_close
+  NULL,
+  NULL,
+  NULL,
+  nr_socket_local_close,
 };
 
 int nr_socket_local_create(nr_transport_addr *addr, nr_socket **sockp)
