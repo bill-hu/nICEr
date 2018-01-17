@@ -684,7 +684,7 @@ int main(int argc, char **argv)
     nr_socket_getfd(signal_socket,&signal_fd);
 
 if(reg_mode==NR_REG_MODE_LOCAL){
-#if 0
+#if 1
 NR_reg_set_char("logging.stderr.enabled", 1);
 NR_reg_set_char("logging.syslog.enabled", 1);
 NR_reg_set_string("logging.syslog.facility.nr_ice_test.level", "debug");
@@ -692,7 +692,7 @@ NR_reg_set_string("logging.syslog.facility.stun.level", "debug");
 NR_reg_set_string("logging.stderr.facility.nr_ice_test.level", "debug");
 NR_reg_set_string("logging.stderr.facility.stun.level", "debug");
 #endif
-#if 1
+#if 0
 NR_reg_set_string("ice.stun.server.0.addr","192.168.223.2");
 //NR_reg_set_string("ice.stun.server.0.addr","192.168.1.105");
 //NR_reg_set_string("ice.stun.server.0.addr","64.69.76.23");
@@ -702,11 +702,11 @@ NR_reg_set_uint2("ice.stun.server.0.port",3478);
 NR_reg_set_string("ice.stun.server.1.addr","192.168.1.105");
 NR_reg_set_uint2("ice.stun.server.1.port",3478);
 #endif
-#if 0
-NR_reg_set_string("ice.turn.server.0.addr","127.0.0.1");
+#if 1
+NR_reg_set_string("ice.turn.server.0.addr","192.158.3.18");
 NR_reg_set_uint2("ice.turn.server.0.port",3478);
-NR_reg_set_bytes("ice.turn.server.0.username",(UCHAR *)"user",4);
-NR_reg_set_bytes("ice.turn.server.0.password",(UCHAR *)"pass",4);
+NR_reg_set_string("ice.turn.server.0.username","xdy");
+NR_reg_set_bytes("ice.turn.server.0.password",(UCHAR *)"xdy",3);
 #endif
 NR_reg_set_uchar("ice.pref.type.srv_rflx",100);
 NR_reg_set_uchar("ice.pref.type.peer_rflx",105);
