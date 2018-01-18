@@ -225,6 +225,7 @@ int nr_ice_fetch_turn_servers(int ct, nr_ice_turn_server **out)
     UINT2 port;
     in_addr_t addr_int;
     Data data={0};
+	int transport = IPPROTO_UDP;
 
     if(!(servers=RCALLOC(sizeof(nr_ice_turn_server)*ct)))
       ABORT(R_NO_MEMORY);
@@ -245,6 +246,14 @@ int nr_ice_fetch_turn_servers(int ct, nr_ice_turn_server **out)
           ABORT(r);
         port = 3478;
       }
+
+	  if(r=NR_reg_get2_uint4(child,"transport",&transport)){
+		  if(r!=R_NOT_FOUND)
+			  ABORT(r);
+	  }
+
+	  servers[i].transport = transport;
+
       if(r=nr_ip4_port_to_transport_addr(ntohl(addr_int), port, IPPROTO_UDP,
         &servers[i].turn_server.u.addr))
         ABORT(r);
@@ -269,6 +278,7 @@ int nr_ice_fetch_turn_servers(int ct, nr_ice_turn_server **out)
       }
 
       servers[i].turn_server.index=i;
+	  servers[i].turn_server.type = NR_ICE_STUN_SERVER_TYPE_ADDR;
 
       RFREE(addr);
       addr=0;

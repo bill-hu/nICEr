@@ -39,6 +39,7 @@ static char *RCSSTRING __UNUSED__="$Id: nr_crypto_openssl.c,v 1.2 2008/04/28 17:
 #include <openssl/crypto.h>
 #include <openssl/rand.h>
 #include <openssl/hmac.h>
+#include <openssl/md5.h>
 
 
 static int nr_ice_crypto_openssl_random_bytes(UCHAR *buf, int len)
@@ -61,9 +62,21 @@ static int nr_ice_crypto_openssl_hmac_sha1(UCHAR *key, int key_l, UCHAR *buf, in
     return(0);
   }
 
+static int nr_ice_crypto_openssl_md5(UCHAR *buf, int buf_l, UCHAR digest[16])
+{
+	MD5_CTX ctx;  
+
+	MD5_Init(&ctx);  
+	MD5_Update(&ctx, buf, buf_l);  
+	MD5_Final(digest, &ctx); 
+	
+	return 0;
+}
+
 static nr_ice_crypto_vtbl nr_ice_crypto_openssl_vtbl= {
   nr_ice_crypto_openssl_random_bytes,
-  nr_ice_crypto_openssl_hmac_sha1
+  nr_ice_crypto_openssl_hmac_sha1,
+  nr_ice_crypto_openssl_md5
 };
 
 
@@ -75,6 +88,7 @@ int nr_crypto_openssl_set()
     
     return(0);
   }
+
 
 nr_ice_crypto_vtbl* nr_crypto_openssl_get()
 {
